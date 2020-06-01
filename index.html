@@ -1,0 +1,59 @@
+---
+layout: default
+---
+<header class="header-main" style="background-image:url('{{ site.baseurl }}/assets/img/home-hero.jpg');">
+    <div class="overlay-light"></div>
+    {% include nav.html %}
+    <div class="home-title">
+        <h1>{{ site.title }}</h1>
+        <h3>Current Undergraduate - Computer Science</h3>
+    </div>
+
+    <a href="#blurb" class="home-avatar"></a>
+</header>
+<!-- About -->
+<div class="who-is-he" id="blurb">
+    <h2>Who am I?</h2>
+    <p>I am a second-year undergraduate student at the University of Michigan studying computer science in the College of Engineering.  I have a particular interest in cybersecurity and information security.  I work with the <a href="https://spqrlab1.github.io/index.html" target="_blank">Security and Privacy Research Group</a> on research problems pertaining to embedded security. Currently, I am researching the security of satellites, looking at how adversaries might target these devices and how we can prevent future attacks.  You can read more about my current work on my <a href="{{ site.baseurl }}/blog">blog.</a></p>
+</div>
+<hr />
+<!-- Recent Projects -->
+<h2 class="recent-projects">Recent Projects</h2>
+<div class="recent-projects-content-wrapper">
+    <!--div class="project-wrap">
+        <div class="project">
+            <div class="project-image"></div>
+            <a href="" target="_blank" class="project-text">
+                <h4>Project Title</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+            </a>
+        </div>
+    </div>
+    <div class="project-wrap project-wrap-reverse">
+        <div class="project">
+            <div class="project-image"></div>
+            <a href="" target="_blank" class="project-text">
+                <h4>Project Title</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+            </a>
+        </div>
+    </div-->
+    <div class="project-wrap">
+        <div class="project">
+            <div class="project-image project-image-three"></div>
+            <a href="" target="_blank" class="project-text">
+                <h4>Personal Website</h4>
+                <p>You're looking at my most recent project! Building this website was my first experiece with Web Development and I look forward to learning more soon.</p>
+            </a>
+        </div>
+    </div>
+    <div class="project-wrap project-wrap-reverse">
+        <div class="project">
+            <div class="project-image project-image-four"></div>
+            <a href="{{ site.baseurl}}/blog" target="_blank" class="project-text">
+                <h4>Satellite Security Research</h4>
+                <p>I work with the Security and Privacy Research Group at the University of Michigan. I am currently studying the security of satellites and how to prevent future attacks.</p>
+            </a>
+        </div>
+    </div>
+</div>
