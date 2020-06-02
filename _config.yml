@@ -23,7 +23,7 @@ email: bakerju@umich.edu
 description: >- # this means to ignore newlines until "baseurl:"
   Justin Baker is a current undergraduate at the University of Michigan studying computer science.
   His interests are in cybersecurity and he works with the SPQR lab at the University of Michigan.
-baseurl: "personal" # the subpath of your site, e.g. /blog
+baseurl: "/personal" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 
 # Build settings
