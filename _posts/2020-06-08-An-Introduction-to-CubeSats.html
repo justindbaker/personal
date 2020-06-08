@@ -1,0 +1,116 @@
+---
+layout: post
+title: "An Introduction to CubeSats"
+categories: technology
+featImg: an-intro-to-cubesats-header-image.png
+excerpt: "In order to analyze the security of satellites, it is important to first understand what exactly goes into a satellite..."
+author: justinBaker
+---
+
+<p>In order to analyze the security of satellites, it is important to first understand what exactly goes into a satellite.
+For this introduction, we’ll take a look at CubeSats which are an increasingly popular form of miniature satellite.
+The benefit of first learning about CubeSats is that they are well documented and, by their very nature, are quite standardized, enabling beginners to pick up the concepts quickly.
+CubeSats, in terms of systems and components, are quite similar to full size, custom built satellites.
+This will likely enable us to scale any CubeSat related vulnerabilities to larger satellites.</p>
+
+<h1>What is a CubeSat?</h1>
+
+<p>CubeSats offer beginners and experts alike a standardized basis for developing, building, and ultimately launching small scale satellites.
+Originally developed by universities to provide access to space for students, the CubeSat standard has been adopted worldwide and is even endorsed by NASA.
+CubeSats get their name from the specific size, shape, and weight criteria that differentiate them from other, more general, small satellites.</p>
+
+<p>Although CubeSats come in many different sizes, they are all based on the standard CubeSat “unit”, denoted as 1U and defined as a cube with 10cm X 10cm X 10cm dimentions and an approximate weight of one kilogram.
+This standard allows the creation of satellites sized from 1U to as large as 12U, with some common sizes being 1.5U, 2U, 3U, and 6U.</p>
+
+<p>The standardization of CubeSats has enabled companies to mass produce commercial off the shelf parts (COTS) that reduces the cost of building such a satellite.
+This enables not only a lower cost of production than custom satellites, but it also enables a standard for transportation and deployment into space.</p>
+
+<h1>Major Systems and Components</h1>
+
+<p>While CubeSats are smaller than their full size satellite counterparts, they still require all of the same basic systems and components in order to ensure operability.
+An overview of the major systems is provided below, but for a complete description of each I recommend reading NASA’s <a href="https://www.nasa.gov/sites/default/files/atoms/files/soa2018_final_doc-6.pdf" target="_blank">State of the Art Small Spacecraft Technology</a>.</p>
+
+<h2>Power</h2>
+<p>As with any electronic device, CubeSats and large satellites alike require electricity to function.
+The power system includes power generation, storage, and distribution.
+Satellites today rely on a combination of solar panels for power generation and batteries for power storage.
+The satellite will run on battery power during and just after launch, as well as when it is in the earth’s shadow.
+While exposed to the sun, the solar panels will charge the batteries providing power throughout the duration of the mission.
+While the sun provides free power, it is still a challenge to provide power for the spacecraft as even the state-of-the-art solar panels only have around 30% efficiency in the best case.
+Depending on which subsystems of the satellite are drawing power, the electrical loads put on the power system may vary throughout the mission.
+The power system must therefore control power delivery to ensure optimal and safe load balancing.</p>
+
+<h2>Propulsion</h2>
+<p>The compact nature of CubeSats, paired with strict weight requirements, make implementing propulsion systems quite difficult.
+Furthermore, there are significant restrictions in place to ensure the safety of the launch vehicle which further hinder typical propulsion systems.
+All of this, when combined with the very specific research experiments that CubeSats perform, often result in propulsion systems that are used exclusively for small attitude corrections rather than big maneuvers.
+Depending on the mission, a CubeSat may not even have a propulsion system at all.</p>
+
+<p>Cold gas thrusters are an example of a propulsion system that is used primarily for attitude correction.
+These thrusters store pressurized gas that is forced through a nozzle in order to generate impulse.
+While this method is one of the simplest, it offers poor performance and cannot carry out high specific impulse maneuvers.
+In contrast, an electric propulsion system can produce a rather high specific impulse by using electricity to speed up the propellant.
+However, this comes at the cost of increased electricity consumption, requiring larger solar cells and batteries.
+There are other systems such as chemical propulsion and solar cells, each with their own pros and cons.</p>
+
+<h2>Guidance, Navigation, and Control</h2>
+<p>The guidance, navigation, and control (GNC) system determines the position of the spacecraft and includes components of the Attitude Determination and Control System (ADCS).
+Given that CubeSats are typically in earth orbit, GPS systems can be used for location determination.
+Furthermore, star trackers, sun sensors, and earth sensors can all be used to determine location.
+There are many different components that are used by the ADCS to control and change the attitude of the satellite.
+These include reaction wheels, magnetorquers, and gyroscopes. Oftentimes, multiple components are used together to mitigate each other's weaknesses.
+There are many available options for integrated GNC units which combine multiple components into a single unit.</p>
+
+<h2>Structure</h2>
+<p>There are two categories when it comes to a CubeSat’s structure, primary and secondary.
+The primary structure is, as its name suggests, the main structure of the CubeSat that holds it all together.
+This structure must be able to withstand the loads of launch, transmitting that load to the deployment system.
+It also provides attachment points for the other components and payload of the satellite.
+This structure is typically made of specific aluminum alloys that can endure the stress and temperatures experienced during a mission.
+The secondary structure is made up of all other components and structures in the satellite such as solar panels or thermal blankets.
+Due to the extreme size constraints of the CubeSat standard, these structures must be volume efficient.
+Consequently, the primary structure must serve multiple functions including thermal management, primary radiation shielding, and pressure containment.
+There are two primary options for CubeSat structures, COTS structures (often called frames or chassis) and custom machined structures.
+It is up to the crew to determine which option will suit the needs of the mission.
+Regardless, all structures must have deployment rails that are used in the deployment process to safely release the CubeSat.</p>
+
+<h2>Thermal Control</h2>
+<p>The components of a satellite typically have specific temperature thresholds that, if not maintained, could result in temporary or permanent inoperability.
+The thermal control system is what maintains the satellites’ temperature.
+While in space, a satellite has many heat sources to contend with including radiation from the sun, heat reflected from the earth, and heat generated from the internal components.
+Temperatures drop while in the shadow of the earth, providing a challenge on the opposite side of the temperature spectrum.
+There are two main approaches to thermal management, passive and active systems.
+Passive systems offer the benefit of no power consumption along with low cost, low volume, and low weight.
+Examples of passive systems include multi layer insulation (MLI), paint, thermal coatings, heat pipes, and sun shields.
+At the expense of increased power usage and weight, active systems such as electrical heaters or mini cryocoolers can provide more specific and consistent temperature management.</p>
+
+<h2>Computing</h2>
+<p>CubeSats often contain more than one computer that enables them to handle multiple tasks seamlessly and in parallel.
+In addition, some systems such as the GNC and the temperature control systems, have their own dedicated computers.
+There are multiple commercial vendors that offer all-in-one systems that include computers and memory, with multiple I/O options for the user.
+If using in house computers, microcontrollers and field programmable gate arrays (FPGAs) are popular choices for onboard computers and have been used in many space missions before.
+There have even been CubeSats that use smartphone based processing by using a standard smartphone.
+Open source platforms such as Arduino and Raspberry Pi can also be used, and with their large amount of public documentation and tutorials, can be easier for beginners.</p>
+
+<h2>Communications</h2>
+<p>The communications system is paramount to a satellite's ability to carry out its mission.
+It allows the spacecraft to receive commands from earth and relay data back to the ground.
+The use of radio frequencies (RF) is common practice in CubeSats and there are multiple frequency bands that are available for use.
+However, radio communications can be difficult given that CubeSats often tumble through space.
+Thus, omnidirectional antennas are typically used, and can be made out of a standard measuring tape, deployed with springs.</p>
+
+<h3>Resources</h3>
+<a href="https://www.nasa.gov/sites/default/files/atoms/files/soa2018_final_doc-6.pdf" target="_blank">State of the Art: Small Spacecraft Technology</a>
+<br>
+<a href="https://www.nasa.gov/sites/default/files/atoms/files/nasa_csli_cubesat_101_508.pdf" target="_blank">CubeSat 101: Basic Concepts and Processes for First-Time CubeSat Developers</a>
+<br>
+<a href="https://en.wikipedia.org/wiki/CubeSat" target="_blank">Wikipedia Article on CubeSats</a>
+<br>
+<a href="https://www.fictiv.com/blog/posts/satellite-101-what-is-a-cubesat#:~:text=A%20CubeSat%20contains%20many%20components,data%20handling%2C%20and%20the%20payload." target="_blank">Blog Post from FicTiv</a>
+<br>
+<a href="https://www.esa.int/Enabling_Support/Space_Engineering_Technology/Power_Systems" target="_blank">ESA Article on Power Systems</a>
+<br>
+<a href="https://youtu.be/Y220vVJCp-g" target="_blank">SciShow Space Video on Propulsion</a>
+
+
+
