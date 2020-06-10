@@ -20,7 +20,7 @@ layout: default
 <hr>
 <h5 class="readMoreCTA">You Might Want To Read...</h5>
 <div class="blogReadMoreWrapper">
-    {% for post in site.posts limit: 3 %}
+    {% for post in site.posts offset: 1 limit: 3 %}
         <div class="blogPostContainer">
             <a href="{{ site.baseurl }}{{ post.url }}" class="blogPostFeatImg" style="background-image: url('{{ site.baseurl }}{{ site.pathToBlogImageBin }}lowRes/{{ post.featImg }}');"></a>
             <a href="" class="blogCategory">{{ post.categories}}</a>

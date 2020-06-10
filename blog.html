@@ -1,7 +1,7 @@
 ---
 layout: default
 ---
-{% for post in site.posts offset: 0 limit: 1 %}
+{% for post in site.posts offset: 1 limit: 1 %}
 <header class="blog-index-header-main" style="background-image:url('{{ site.baseurl }}{{ site.pathToBlogImageBin }}{{ post.featImg }}')">
     <div class="overlay-dark"></div>
     {% include nav.html %}
