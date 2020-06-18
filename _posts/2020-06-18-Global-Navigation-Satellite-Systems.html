@@ -6,6 +6,9 @@ featImg: GNSS-title-photo.jpg
 excerpt: "Global Navigation Satellite Systems (GNSS) are the greater classification of what is commonly referred to as GPS but includes other navigation systems..."
 author: justinBaker
 ---
+<p>Today’s Research Paper:  <a href="https://ieeexplore.ieee.org/abstract/document/7442783/metrics#metrics" target="_blank">Known Vulnerabilities of Global Navigation Satellite Systems, Status, and Potential Mitigation Techniques</a>
+</p>
+
 <p>Global Navigation Satellite Systems (GNSS) are the greater classification of what is commonly referred to as GPS but includes other navigation systems such as Galileo and Russia’s GLONASS.  GNSS uses time difference of arrival (TDOA) to provide position and time information to land based receivers.  Given a connection to 4 or more satellites, receivers can calculate their position.  However, due to the nature of these signals, receivers can be tricked if a signal is broadcast on the same frequency as the true GNSS signal.  This poses a major challenge as GNSS is vital to the economy.  A survey from the European Commission (EC) estimates assets depending on GNSS to be at the 800 billion Euro level (~ 9 billion US dollars).  Consequently, this paper explores both the vulnerabilities present in GNSS systems and methods of detection and mitigation.</p>
 <h1>The GNSS Operation Principle</h1>
 <p>There are three elements that make up GNSS: the space segment, control segment, and the user segment.</p>
@@ -49,3 +52,6 @@ author: justinBaker
 <p>The system level uses authentication based in cryptographic techniques thereby making it difficult for adversaries to generate the same signal.  Although not all spoofing attacks can be prevented with authentication, when paired with receiver-based techniques the result could be quite successful.  When considering different authentication techniques, the application requirements and use cases must be considered.  Cryptography for this application comes in two flavors, symmetric key and asymmetric key.  In symmetric key cryptography the transmitter and the receiver share a secret key.  This makes it impractical for civilian use as anyone that knows the key could impersonate the satellite.  Asymmetric key cryptography uses a public and private key and would work on a larger scale system; however it is slower and requires longer keys and more computational power.</p>
 <h1>Final Takeaways</h1>
 <p>There are aspects of this paper that I did not cover or did not cover in detail.  This paper is quite technical, and I want to take more time to understand certain aspects before publishing them.  While this paper may be difficult for beginners to understand, the information is fundamental to the security of satellites and provides a great basis for continued learning.</p>
+
+<p>Please note that this post represents my takeaways from the paper; all credit goes to the authors.</p>
+<p>Title Photo courtesy of <a href="https://unsplash.com/@jamie452" target="_blank">Jamie Street</a></p>
