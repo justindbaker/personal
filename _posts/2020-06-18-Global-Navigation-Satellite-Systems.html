@@ -1,0 +1,51 @@
+---
+layout: post
+title: "Global Navigation Satellite Systems"
+categories: Research
+featImg: GNSS-title-photo.jpg
+excerpt: "Global Navigation Satellite Systems (GNSS) are the greater classification of what is commonly referred to as GPS but includes other navigation systems..."
+author: justinBaker
+---
+<p>Global Navigation Satellite Systems (GNSS) are the greater classification of what is commonly referred to as GPS but includes other navigation systems such as Galileo and Russia’s GLONASS.  GNSS uses time difference of arrival (TDOA) to provide position and time information to land based receivers.  Given a connection to 4 or more satellites, receivers can calculate their position.  However, due to the nature of these signals, receivers can be tricked if a signal is broadcast on the same frequency as the true GNSS signal.  This poses a major challenge as GNSS is vital to the economy.  A survey from the European Commission (EC) estimates assets depending on GNSS to be at the 800 billion Euro level (~ 9 billion US dollars).  Consequently, this paper explores both the vulnerabilities present in GNSS systems and methods of detection and mitigation.</p>
+<h1>The GNSS Operation Principle</h1>
+<p>There are three elements that make up GNSS: the space segment, control segment, and the user segment.</p>
+<h2>Space Segment</h2>
+<p>GNSS satellites are medium sized and weight between 200 and 2000 kilograms.  Most have a nearly circular orbit that is around 25 – 30 million meters above the earth’s surface.  These satellites use the L-band frequency for communications to earth.  More technically, they use high power amplifiers (HPAs) which are non-linear amplifiers.  Signal multiplexing technologies are used which enable amplification from a singular HPA.</p>
+<h2>User Receivers</h2>
+<p>This section of the paper relied on a lot of math to explain how GNSS frequencies are acquired by receivers.  I do not understand these concepts well enough to attempt to explain them, but I encourage the interested reader to consult the paper.</p>
+<h2>Control Segment</h2>
+<p>The control segment uses GNSS receivers at monitor stations that collect data from all the satellites.  The locations of these stations are exactly known which allows the prediction of satellite location and estimations of small deviations in their onboard atomic clocks.  These stations can also estimate the delay of the signal that is caused by the atmosphere.  Data on all of this is uploaded to the satellite in the C-band every few hours.</p>
+<h1>Attacks to GNSS Receivers</h1>
+<p>An interference signal can cause receiver failure, incorrect position estimates, or incorrect time estimates.  This interference coms in two forms: jamming and spoofing.</p>
+<h2>Jamming</h2>
+<p>Jamming exists as both intentional and unintentional jamming.  Its level of interference is based on the “effective carrier to noise ratio.”  In other words, a more powerful jamming device, coupled with a signal that is close to the true satellite signal, results in more noise.</p>
+<h3>Unintentional Interference</h2>
+<p>Unintentional interference comes from other systems that broadcast radio frequencies that can be either out of band or in band.  Out of band interference comes from devices like terrestrial digital video broadcasting (DVB-T), multicarrier modulated satellite communication systems, and amateur radios.  In band interference can come from sources such as civilian and military navigation systems as distance measuring equipment, tactical air navigation, military communication systems, and various forms of radars.</p>
+<h3>Intentional Interference</h2>
+<p>This form of interference is created by a strong signal in the GNSS band.  These signals can come from personal privacy devices (PPD) that are typically used to block a vehicle from being tracked in cases such as road tolling trackers.</p>
+<h2>Spoofing</h2>
+<p>Spoofing occurs when the interference waveform is similar in structure to the true waveform.  This allows an adversary to deceive the receiver’s estimate of location and timing information.  It can be difficult to carry out a spoofing attack undetected.  The spoofer must know the approximate user’s trajectory, provide a reasonable delay, power, and doppler while considering the attacker’s own hardware delays.  Baring the difficulties, it is possible to inject fake navigation information by transmitting a spoofing signal with slightly more power than the true signal.  There are two attack vectors that exist when spoofing OS GNSS signals: the navigation message and the ranging code.</p>
+<h3>Navigation attacks</h3>
+<p>In order to carry out a navigation attack, the attacker will demodulate the authentic navigation data, modify it in some way, and retransmit the signal with incorrect ranging, position, and timing.  While there are detection schemes to prevent this using expected times, these are not applicable to all GNSS systems.</p>
+<h3>Code Level Attacks</h3>
+<p>I am saving the specifics of these attacks for a separate post as they are very technical in nature and I want to understand them better before I post them here.  I encourage the interested reader to consult the paper to learn more about these attacks.  The attacks described in the paper are listed below for convenience.</p>
+<ul>
+    <li>Lift off Delay</li>
+    <li>Lift off Aligned</li>
+    <li>Meaconing and Selective Delay</li>
+    <li>Jam and Spoof</li>
+    <li>Non-Line of Sight Spoofing</li>
+    <li>Trajectory Spoofing</li>
+</ul>
+<h1>Detection of Interferences</h1>
+<p>There exists a jamming detection scheme that uses properties of the automatic gain control (AGC).  The AGC’s output is driven by noise, consequently, variations in this device’s output could signal an attack.  This method is most effective when a strong interference signal is present, and losses detection ability as the signal nears the strength of the true signal.  Many popular interference detection algorithms fall into the spectral monitoring category, with a major algorithm being the short-time Fourier transform.  Other methods such as wavelet transforms and quadratic TFR algorithms each offer different abilities when it comes to resolution.</p>
+<h1>Mitigation of Interferences</h1>
+<p>Mitigation techniques are grouped into four domains: time, frequency, time-frequency, and spatial time.  The pulse blanking technique is the most popular for the time domain.  As for the frequency domain, the goal is to remove the harmonic component of an interfering signal.  To do this, harmonics that exceed a detection threshold are set to zero.  I was unable to find specific information for the other two domains, but the paper did note that these techniques are not suitable for matched spectrum or broadband jamming.</p>
+<h1>Detection and Mitigation of Spoofing</h1>
+<p>Detection of spoofing is inherently difficult due to the spoofed signal being extremely close in power to the true signal.  The two major domains of detection and mitigation exist at the user level and at the system level.</p>
+<h2>User Level</h2>
+<p>There are many user level techniques explored briefly in the paper.  The bottom line is that there are many variables that go into detection and mitigation at the user level.  While techniques do exist, the performance analysis of these are incomplete and must be further explored under a variety of conditions.  Consequently, the GNSS community is leaning towards system-level techniques as a solution.</p>
+<h2>System Level</h2>
+<p>The system level uses authentication based in cryptographic techniques thereby making it difficult for adversaries to generate the same signal.  Although not all spoofing attacks can be prevented with authentication, when paired with receiver-based techniques the result could be quite successful.  When considering different authentication techniques, the application requirements and use cases must be considered.  Cryptography for this application comes in two flavors, symmetric key and asymmetric key.  In symmetric key cryptography the transmitter and the receiver share a secret key.  This makes it impractical for civilian use as anyone that knows the key could impersonate the satellite.  Asymmetric key cryptography uses a public and private key and would work on a larger scale system; however it is slower and requires longer keys and more computational power.</p>
+<h1>Final Takeaways</h1>
+<p>There are aspects of this paper that I did not cover or did not cover in detail.  This paper is quite technical, and I want to take more time to understand certain aspects before publishing them.  While this paper may be difficult for beginners to understand, the information is fundamental to the security of satellites and provides a great basis for continued learning.</p>
